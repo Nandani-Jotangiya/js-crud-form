@@ -9,9 +9,9 @@ const studentForm = document.getElementById("studentForm");
 const country = document.getElementById("country");
 const state = document.getElementById("state");
 const city = document.getElementById("city");
+const searchInput = document.getElementById("searchInput");
 
 let editrow = null;
-let studentLists = [];
 
 studentForm.addEventListener("submit", function (event) {
 
@@ -87,7 +87,7 @@ studentForm.addEventListener("submit", function (event) {
         return;
     }
 
-// CREATE STUDENT OBJECT
+    // CREATE STUDENT OBJECT
     const student = {
 
         name: nameText.value,
@@ -108,17 +108,19 @@ studentForm.addEventListener("submit", function (event) {
 
     if (editrow === null) {
 
-    students.push(student);
+        students.push(student);
 
-} else {
+    } else {
 
-    students[editrow] = student;
+        students[editrow] = student;
 
-    editrow = null;
+        editrow = null;
 
-    saveBtn.innerText = "Save";
+        let students = []
 
-}
+        saveBtn.innerText = "Save";
+
+    }
 
     displaystudents();
     resetAll();
@@ -127,11 +129,11 @@ studentForm.addEventListener("submit", function (event) {
 
 //Display Students
 
-function displaystudents() {
+function displaystudents(studentData = students) {
 
     let tabledata = "";
 
-    students.forEach(function (student, index) {
+    studentData.forEach(function (student, index) {
 
         tabledata += `
         <tr>
@@ -175,8 +177,6 @@ for (let countryName in countries) {
     `;
 }
 
-
-
 //  COUNTRY CHANGE 
 
 country.addEventListener("change", function () {
@@ -201,8 +201,6 @@ country.addEventListener("change", function () {
         `;
     }
 });
-
-
 
 //STATE CHANGE
 
@@ -257,90 +255,99 @@ function resetAll() {
 
 function editStudent(index) {
 
-   
+
 
     const student = students[index];
 
 
-// FILL INPUTS 
+    // FILL INPUTS 
 
     nameText.value = student.name;
 
     emailText.value = student.email;
 
 
-// GENDER 
+    // GENDER 
 
-    genders.forEach(function(item){
+    genders.forEach(function (item) {
 
-        if(item.value === student.gender){
+        if (item.value === student.gender) {
 
             item.checked = true;
         }
     });
 
 
-// HOBBIES
+    // HOBBIES
 
-    hobbies.forEach(function(item){
+    hobbies.forEach(function (item) {
 
         item.checked = false;
 
         let hobbyArray =
             student.hobbies.split(",");
 
-        if(hobbyArray.includes(item.value)){
+        if (hobbyArray.includes(item.value)) {
 
             item.checked = true;
         }
     });
 
 
-//  COUNTRY 
+    //  COUNTRY 
 
     country.value = student.country;
 
 
-//  LOAD STATES 
+    //  LOAD STATES 
 
     state.innerHTML =
+        
         `<option value="">Select State</option>`;
 
-    for(let stateName in countries[student.country]){
+    for (let stateName in countries[student.country]) {
 
         state.innerHTML += `
-            <option value="${stateName}">
-                ${stateName}
-            </option>
+            
+         <option value="${stateName}">
+                
+        ${stateName}
+           
+        </option>
         `;
     }
 
     state.value = student.state;
 
 
-// LOAD CITIES 
+    // LOAD CITIES 
 
     city.innerHTML =
+
         `<option value="">Select City</option>`;
 
     countries[student.country][student.state]
-    .forEach(function(cityName){
 
-        city.innerHTML += `
+        .forEach(function (cityName) {
+
+            city.innerHTML += `
+
             <option value="${cityName}">
+
                 ${cityName}
+
             </option>
         `;
-    });
+        });
 
     city.value = student.city;
 
 
-// STORE EDIT INDEX 
+    // STORE EDIT INDEX 
 
     editrow = index;
 
-// CHANGE SAVE BUTTON TEXT TO UPDATE 
+    // CHANGE SAVE BUTTON TEXT TO UPDATE 
 
     saveBtn.innerText = "Update";
 }
@@ -353,3 +360,29 @@ function deleteStudents(index) {
 
     displaystudents();
 }
+
+
+searchInput.addEventListener("input", function () {
+
+    const searchValue =
+        this.value.toLowerCase();
+
+    if (searchValue === "") {
+
+        displaystudents();
+
+        return;
+    }
+
+    const filteredStudents =
+        students.filter(function (student) {
+
+            return student.name
+                .toLowerCase()
+                .includes(searchValue);
+
+        });
+
+    displaystudents(filteredStudents);
+
+});

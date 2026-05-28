@@ -1,113 +1,287 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body{
+body {
     background-color: #f4f4f4;
+
     font-family: Arial, Helvetica, sans-serif;
 
     display: flex;
     justify-content: center;
+    align-items: center;
 
     padding: 40px;
 }
-    
-h1 {
-    text-align: center;   
-}
+
+/* MAIN CONTAINER */
 
 #container {
-
-    padding: 100px;
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-
-    #container{
     width: 100%;
-    max-width: 1000px;
+    max-width: 1100px;
+
+    background-color: white;
+
+    padding: 30px;
+
+    border-radius: 16px;
+
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
 }
-    
+
+/* HEADING */
+
+h1 {
+    text-align: center;
+
+    margin-bottom: 25px;
+
+    font-size: 32px;
+
+    color: #222;
 }
+
+/* SEARCH BAR */
+
+.search-container {
+    display: flex;
+    justify-content: center;
+
+    margin-bottom: 30px;
+}
+
+.search-container input {
+    width: 100%;
+    max-width: 500px;
+
+    padding: 14px 20px;
+
+    border: 1px solid #d1d5db;
+
+    border-radius: 50px;
+
+    font-size: 15px;
+
+    outline: none;
+
+    background-color: #fafafa;
+
+    transition: 0.3s;
+}
+
+.search-container input:focus {
+    border-color: #2563eb;
+
+    background-color: white;
+
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.12);
+}
+
+/* FORM */
 
 form {
     display: flex;
     flex-direction: column;
+
     gap: 15px;
 }
 
-label,p {
+/* LABELS */
+
+label,
+p {
     font-weight: 700;
+
+    color: #333;
 }
 
+/* INPUTS & SELECT */
+
 input,
-select {
-    padding: 10px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
+select,
+textarea {
+    width: 100%;
+
+    padding: 12px;
+
+    border-radius: 10px;
+
+    border: 1px solid #d1d5db;
+
+    font-size: 15px;
+
+    outline: none;
+
+    transition: 0.3s;
 }
+
+/* INPUT FOCUS EFFECT */
+
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: #2563eb;
+
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+/* RADIO & CHECKBOX SECTION */
+
+#gender,
+#hobbies {
+    padding: 10px 0;
+}
+
+#gender input,
+#hobbies input {
+    width: auto;
+
+    margin-right: 5px;
+}
+
+/* BUTTONS */
 
 #buttons {
     display: flex;
     justify-content: center;
-    gap: 10px;
-    padding-bottom: 50px;
-    
-}
 
-button {
-    padding: 10px 20px;
-    cursor: pointer;
-    background-color: black;
-    color: white;
-    border: none;
-    border-radius: 4px;
-}
+    gap: 15px;
 
-p{
-    padding-bottom: 10px;
-}
-
-.table-container{
-    width: 100%;
-    overflow-x: auto;
     margin-top: 20px;
 }
 
+/* GENERAL BUTTON */
 
-table{
+button {
+    padding: 12px 22px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    cursor: pointer;
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    transition: 0.3s;
+}
+
+/* SAVE BUTTON */
+
+#saveBtn {
+    background-color: #2563eb;
+
+    color: white;
+}
+
+/* CANCEL BUTTON */
+
+#cancelBtn {
+    background-color: #e5e7eb;
+
+    color: black;
+}
+
+/* BUTTON HOVER */
+
+button:hover {
+    transform: translateY(-2px);
+
+    opacity: 0.95;
+}
+
+/* TABLE CONTAINER */
+
+#table-container {
     width: 100%;
+
+    overflow-x: auto;
+
+    margin-top: 40px;
+}
+
+/* TABLE */
+
+table {
+    width: 100%;
+
     border-collapse: collapse;
+
+    overflow: hidden;
+
+    border-radius: 12px;
+
     background-color: white;
 }
 
-table,
-th,
-td{
-    border: 1px solid black;
+/* TABLE HEADER */
+
+th {
+    background-color: #f3f4f6;
+
+    color: #222;
+
+    font-weight: 700;
 }
 
+/* TABLE CELLS */
+
 th,
-td{
-    padding: 10px;
+td {
+    padding: 14px;
+
     text-align: center;
+
+    border-bottom: 1px solid #e5e7eb;
 }
 
+/* ROW HOVER */
 
-#deleteBtn{
-    background-color: #ae0000;
+tbody tr:hover {
+    background-color: #f9fafb;
 }
 
-#deleteBtn,#editBtn {
-     color: white;
-     border-radius: 4px;
-     border: none;
+/* DELETE BUTTON */
+
+#deleteBtn {
+    background-color: #dc2626;
+
+    color: white;
 }
+
+/* EDIT BUTTON */
 
 #editBtn {
-    background-color:#BB6B00;
+    background-color: #f59e0b;
+
+    color: white;
 }
 
+/* RESPONSIVE */
 
+@media screen and (max-width: 768px) {
+
+    body {
+        padding: 20px;
+    }
+
+    #container {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 26px;
+    }
+
+    #buttons {
+        flex-direction: column;
+    }
+
+    button {
+        width: 100%;
+    }
+}

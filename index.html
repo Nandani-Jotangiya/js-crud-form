@@ -11,17 +11,26 @@
 <body>
 
     <div id="container">
+
         <h1>Demo Form</h1>
+        <div class="search-container">
+
+            <input id = "searchInput" type="text" placeholder="Search by name...">
+
+        </div>
+
         <form id="studentForm">
 
             <label for="name">Name</label>
+
             <input type="text" id="name" placeholder="Enter your name">
 
             <label for="email">Email</label>
+
             <input type="email" id="email" placeholder="Enter your email">
 
             <div id="gender">
-                
+
                 <p>Gender</p>
 
                 <input type="radio" name="gender" value="Male"> Male
@@ -39,25 +48,29 @@
                 <input type="checkbox" name="hobby" value="Sports"> Sports
 
                 <input type="checkbox" name="hobby" value="Travelling"> Travelling
-                
+
             </div>
 
             <label for="country">Country</label>
+
             <select id="country">
                 <option value="">Select Country</option>
             </select>
 
             <label for="state">State</label>
+
             <select id="state">
                 <option value="">Select State</option>
             </select>
 
             <label for="city">City</label>
+
             <select id="city">
                 <option value="">Select City</option>
             </select>
 
             <div id="buttons">
+
                 <button type="submit" id="saveBtn">
                     Save
                 </button>
@@ -65,37 +78,39 @@
                 <button type="button" id="cancelBtn">
                     Cancel
                 </button>
+
             </div>
 
         </form>
-<div id="table-container">
-     <table>
-        <thead>
+        <div id="table-container">
+            <table>
+                <thead>
 
-        <tr>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Gender</th>
-            <th>Hobby</th>
-            <th>Country</th>
-            <th>State</th>
-            <th>City</th>
-            <th>Delete</th>
-            <th>Modify</th>
-        </tr>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Gender</th>
+                        <th>Hobby</th>
+                        <th>Country</th>
+                        <th>State</th>
+                        <th>City</th>
+                        <th>Delete</th>
+                        <th>Modify</th>
+                    </tr>
 
-        </thead>
-        <tbody id="studentList">
+                </thead>
+                <tbody id="studentList">
 
-        </tbody>
-    </table>
-</div>
-   
+                </tbody>
+            </table>
+        </div>
+
 
     </div>
 
-   
+
     <script src="data.js"></script>
     <script src="script.js"></script>
 </body>
+
 </html>
