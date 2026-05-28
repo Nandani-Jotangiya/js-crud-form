@@ -117,7 +117,7 @@ studentForm.addEventListener("submit", function (event) {
     editrow = null;
 
     saveBtn.innerText = "Save";
-    
+
 }
 
     displaystudents();
@@ -145,13 +145,13 @@ function displaystudents() {
             <td>${student.city}</td>
 
             <td>
-                <button onclick="deleteStudents(${index})">
+                <button id = "deleteBtn" onclick="deleteStudents(${index})">
                     Delete
                 </button>
             </td>
 
             <td>
-                <button onClick ="editStudent(${index})">
+                <button id = "editBtn" onClick ="editStudent(${index})">
                     Edit
                 </button>
             </td>
@@ -345,4 +345,11 @@ function editStudent(index) {
     saveBtn.innerText = "Update";
 }
 
+//DELETE RECORD
 
+function deleteStudents(index) {
+
+    students.splice(index, 1);
+
+    displaystudents();
+}

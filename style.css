@@ -97,7 +97,7 @@ td{
 
 
 #deleteBtn{
-    background-color: red;
+    background-color: #ae0000;
 }
 
 #deleteBtn,#editBtn {
@@ -107,7 +107,7 @@ td{
 }
 
 #editBtn {
-    background-color:black;
+    background-color:#BB6B00;
 }
 
 
