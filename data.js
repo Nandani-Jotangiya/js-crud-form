@@ -125,6 +125,25 @@ let students = [
         country: "UK",
         state: "England",
         city: "London"
+    },
+     {
+        name: "Olivia",
+        email: "olivia@gmail.com",
+        gender: "Female",
+        hobbies: "Reading",
+        country: "Australia",
+        state: "Queensland",
+        city: "Brisbane"
+    },
+
+    {
+        name: "William",
+        email: "william@gmail.com",
+        gender: "Male",
+        hobbies: "Sports",
+        country: "UK",
+        state: "England",
+        city: "London"
     }
 
 ];

@@ -2,131 +2,227 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css" />
+
+    <title>Student Management System</title>
+
+    <link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
 
     <div id="container">
 
-        <h1>Demo Form</h1>
-        <div class="search-container">
+        <!-- LEFT SIDE FORM -->
 
-            <input id="searchInput" type="text" placeholder="Search by name...">
+        <div id="form-container">
 
-            <select id="sortSelect">
+            <h1>Student Form</h1>
 
-                <option value="">
-                    Sort By Name
-                </option>
+            <form id="studentForm">
 
-                <option value="asc">
-                    Ascending
-                </option>
+                <!-- NAME -->
 
-                <option value="desc">
-                    Descending
-                </option>
+                <label for="name">
+                    Name
+                </label>
 
-            </select>
+                <input type="text" id="name" placeholder="Enter your name">
+
+                <!-- EMAIL -->
+
+                <label for="email">
+                    Email
+                </label>
+
+                <input type="email" id="email" placeholder="Enter your email">
+
+                <!-- GENDER -->
+
+                <div id="gender">
+
+                    <p style="padding-bottom: 5px;">Gender</p>
+
+                    <input type="radio" name="gender" value="Male">
+                    Male
+
+                    <input type="radio" name="gender" value="Female">
+                    Female
+
+                </div>
+
+                <!-- HOBBIES -->
+
+                <div id="hobbies">
+
+                    <p style="padding-bottom: 5px;">Hobbies</p>
+
+                    <input type="checkbox" name="hobby" value="Reading">
+                    Reading
+
+                    <input type="checkbox" name="hobby" value="Sports">
+                    Sports
+
+                    <input type="checkbox" name="hobby" value="Travelling">
+                    Travelling
+
+                </div>
+
+                <!-- COUNTRY -->
+
+                <label for="country">
+                    Country
+                </label>
+
+                <select id="country">
+
+                    <option value="">
+                        Select Country
+                    </option>
+
+                </select>
+
+                <!-- STATE -->
+
+                <label for="state">
+                    State
+                </label>
+
+                <select id="state">
+
+                    <option value="">
+                        Select State
+                    </option>
+
+                </select>
+
+                <!-- CITY -->
+
+                <label for="city">
+                    City
+                </label>
+
+                <select id="city">
+
+                    <option value="">
+                        Select City
+                    </option>
+
+                </select>
+
+                <!-- BUTTONS -->
+
+                <div id="buttons">
+
+                    <button type="submit" id="saveBtn">
+                        Save
+                    </button>
+
+                    <button type="button" id="cancelBtn">
+                        Cancel
+                    </button>
+
+                </div>
+
+            </form>
 
         </div>
 
-        <form id="studentForm">
+        <!-- RIGHT SIDE -->
 
-            <label for="name">Name</label>
+        <div id="right-section">
 
-            <input type="text" id="name" placeholder="Enter your name">
+            <!-- SEARCH + SORT -->
 
-            <label for="email">Email</label>
+            <div class="search-container">
 
-            <input type="email" id="email" placeholder="Enter your email">
+                <input id="searchInput" type="text" placeholder="Search by name...">
 
-            <div id="gender">
+                <select id="sortSelect">
 
-                <p>Gender</p>
+                    <option value="">
+                        Sort By Name
+                    </option>
 
-                <input type="radio" name="gender" value="Male"> Male
+                    <option value="asc">
+                        Ascending
+                    </option>
 
-                <input type="radio" name="gender" value="Female"> Female
+                    <option value="desc">
+                        Descending
+                    </option>
 
-            </div>
-
-            <div id="hobbies">
-
-                <p>Hobbies</p>
-
-                <input type="checkbox" name="hobby" value="Reading"> Reading
-
-                <input type="checkbox" name="hobby" value="Sports"> Sports
-
-                <input type="checkbox" name="hobby" value="Travelling"> Travelling
+                </select>
 
             </div>
 
-            <label for="country">Country</label>
+            <!-- TABLE -->
 
-            <select id="country">
-                <option value="">Select Country</option>
-            </select>
+            <div id="table-container">
 
-            <label for="state">State</label>
+                <table>
 
-            <select id="state">
-                <option value="">Select State</option>
-            </select>
+                    <thead>
 
-            <label for="city">City</label>
+                        <tr>
 
-            <select id="city">
-                <option value="">Select City</option>
-            </select>
+                            <th>Name</th>
 
-            <div id="buttons">
+                            <th>Email</th>
 
-                <button type="submit" id="saveBtn">
-                    Save
+                            <th>Gender</th>
+
+                            <th>Hobbies</th>
+
+                            <th>Country</th>
+
+                            <th>State</th>
+
+                            <th>City</th>
+
+                            <th>Delete</th>
+
+                            <th>Edit</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody id="studentList">
+
+                    </tbody>
+
+                </table>
+
+            </div>
+            <div id="pagination">
+
+                <button id="prevBtn">
+                    Prev
                 </button>
 
-                <button type="button" id="cancelBtn">
-                    Cancel
+                <span id="pageNumber">
+                    Page 1
+                </span>
+
+                <button id="nextBtn">
+                    Next
                 </button>
 
             </div>
 
-        </form>
-        <div id="table-container">
-            <table>
-                <thead>
-
-                    <tr>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>Gender</th>
-                        <th>Hobby</th>
-                        <th>Country</th>
-                        <th>State</th>
-                        <th>City</th>
-                        <th>Delete</th>
-                        <th>Modify</th>
-                    </tr>
-
-                </thead>
-                <tbody id="studentList">
-
-                </tbody>
-            </table>
         </div>
-
 
     </div>
 
-
     <script src="data.js"></script>
+
     <script src="script.js"></script>
+
 </body>
 
 </html>
