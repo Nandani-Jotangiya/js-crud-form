@@ -362,6 +362,7 @@ function deleteStudents(index) {
 }
 
 
+//SEARCH BY NAME
 searchInput.addEventListener("input", function () {
 
     const searchValue =
@@ -374,7 +375,9 @@ searchInput.addEventListener("input", function () {
         return;
     }
 
+//FILTER BY NAME
     const filteredStudents =
+    
         students.filter(function (student) {
 
             return student.name
@@ -384,5 +387,39 @@ searchInput.addEventListener("input", function () {
         });
 
     displaystudents(filteredStudents);
+
+});
+
+const sortSelect =
+    document.getElementById("sortSelect");
+
+sortSelect.addEventListener("change", function () {
+
+    const sortValue = this.value;
+
+    let sortedStudents =
+        [...students];
+
+    if (sortValue === "asc") {
+
+        sortedStudents.sort(function (a, b) {
+
+            return a.name.localeCompare(b.name);
+
+        });
+
+    }
+
+    else if (sortValue === "desc") {
+
+        sortedStudents.sort(function (a, b) {
+
+            return b.name.localeCompare(a.name);
+
+        });
+
+    }
+
+    displaystudents(sortedStudents);
 
 });
