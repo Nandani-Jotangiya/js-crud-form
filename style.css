@@ -1,0 +1,113 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #f4f4f4;
+    font-family: Arial, Helvetica, sans-serif;
+
+    display: flex;
+    justify-content: center;
+
+    padding: 40px;
+}
+    
+h1 {
+    text-align: center;   
+}
+
+#container {
+
+    padding: 100px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+
+    #container{
+    width: 100%;
+    max-width: 1000px;
+}
+    
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+label,p {
+    font-weight: 700;
+}
+
+input,
+select {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+#buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    padding-bottom: 50px;
+    
+}
+
+button {
+    padding: 10px 20px;
+    cursor: pointer;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 4px;
+}
+
+p{
+    padding-bottom: 10px;
+}
+
+.table-container{
+    width: 100%;
+    overflow-x: auto;
+    margin-top: 20px;
+}
+
+
+table{
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+}
+
+table,
+th,
+td{
+    border: 1px solid black;
+}
+
+th,
+td{
+    padding: 10px;
+    text-align: center;
+}
+
+
+#deleteBtn{
+    background-color: red;
+}
+
+#deleteBtn,#editBtn {
+     color: white;
+     border-radius: 4px;
+     border: none;
+}
+
+#editBtn {
+    background-color:black;
+}
+
+
