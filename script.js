@@ -87,7 +87,7 @@ studentForm.addEventListener("submit", function (event) {
         return;
     }
 
-
+// CREATE STUDENT OBJECT
     const student = {
 
         name: nameText.value,
@@ -106,7 +106,19 @@ studentForm.addEventListener("submit", function (event) {
 
     };
 
+    if (editrow === null) {
+
     students.push(student);
+
+} else {
+
+    students[editrow] = student;
+
+    editrow = null;
+
+    saveBtn.innerText = "Save";
+    
+}
 
     displaystudents();
     resetAll();
@@ -139,7 +151,7 @@ function displaystudents() {
             </td>
 
             <td>
-                <button onClick ="editStudents(${index})">
+                <button onClick ="editStudent(${index})">
                     Edit
                 </button>
             </td>
@@ -243,6 +255,94 @@ function resetAll() {
 
 }
 
+function editStudent(index) {
 
+   
+
+    const student = students[index];
+
+
+// FILL INPUTS 
+
+    nameText.value = student.name;
+
+    emailText.value = student.email;
+
+
+// GENDER 
+
+    genders.forEach(function(item){
+
+        if(item.value === student.gender){
+
+            item.checked = true;
+        }
+    });
+
+
+// HOBBIES
+
+    hobbies.forEach(function(item){
+
+        item.checked = false;
+
+        let hobbyArray =
+            student.hobbies.split(",");
+
+        if(hobbyArray.includes(item.value)){
+
+            item.checked = true;
+        }
+    });
+
+
+//  COUNTRY 
+
+    country.value = student.country;
+
+
+//  LOAD STATES 
+
+    state.innerHTML =
+        `<option value="">Select State</option>`;
+
+    for(let stateName in countries[student.country]){
+
+        state.innerHTML += `
+            <option value="${stateName}">
+                ${stateName}
+            </option>
+        `;
+    }
+
+    state.value = student.state;
+
+
+// LOAD CITIES 
+
+    city.innerHTML =
+        `<option value="">Select City</option>`;
+
+    countries[student.country][student.state]
+    .forEach(function(cityName){
+
+        city.innerHTML += `
+            <option value="${cityName}">
+                ${cityName}
+            </option>
+        `;
+    });
+
+    city.value = student.city;
+
+
+// STORE EDIT INDEX 
+
+    editrow = index;
+
+// CHANGE SAVE BUTTON TEXT TO UPDATE 
+
+    saveBtn.innerText = "Update";
+}
 
 
